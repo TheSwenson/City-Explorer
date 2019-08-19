@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 
 const app = express();
 
@@ -19,7 +20,7 @@ function Location(query, geoData){
     this.latitude = geoData.results[0].geometry.location.lat;
     this.longitude = geoData.results[0].geometry.location.lng;
 }
-
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
     console.log('yeah! servers bitch!');
 });
